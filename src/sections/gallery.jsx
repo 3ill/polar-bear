@@ -6,7 +6,7 @@ import { VehicleGallery } from "../constants";
 const Gallery = () => {
   return (
     <section className="my-20 flex w-full flex-col bg-neutral-950 py-4">
-      <div className="max-w-7xl c-space mx-auto">
+      <div className="max-w-9xl c-space mx-auto">
         <h1 className="head-text">Explore</h1>
         <div className="flex flex-col gap-10">
           {VehicleGallery.map((vehicle, index) => {

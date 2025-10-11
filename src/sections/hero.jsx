@@ -63,31 +63,55 @@ const Hero = () => {
   return (
     <section id="home" className=" w-full flex flex-col relative">
       <div className="w-full mx-auto flex flex-col sm:mt-5 mt-0 c-space gap-3 relative">
-        <div className="flex w-full h-screen justify-center items-start sm:items-center relative pt-20 sm:pt-0">
+        <div className="flex flex-col w-full max-w-[200px]">
+          <a href="/" className="">
+            <img
+              src={"assets/jac-logo.jpg"}
+              alt="logo"
+              className="object-contain w-30 h-30"
+            />
+          </a>
+        </div>
+        <div className="flex w-full h-screen  relative pt-20 sm:pt-0">
           <div className="flex w-full flex-col lg:flex-row">
-            <div className="lg:flex lg:flex-col gap-4 z-10 mt-4 flex-wrap hidden">
-              {Models.map((model, index) => (
-                <button
-                  key={index}
-                  onClick={() => handleSetActiveModelIndex(index)}
-                  className={`${
-                    activeModelIndex === index
-                      ? "text-white font-extrabold transition-all duration-500 scale-[3] origin-left"
-                      : "text-neutral-500 font-light hover:scale-150 active:scale-110"
-                  } transition-all duration-500 font-bebas text-lg`}
-                >
-                  {model.name}
-                </button>
-              ))}
+            <div className="lg:flex absolute origin-left top-30 lg:flex-col gap-10 z-10 mt-4 flex-wrap hidden">
+              {Models.map((model, index) => {
+                const distance = Math.abs(activeModelIndex - index);
+                let scale = 1;
+                if (distance === 0) scale = 4;
+                else if (distance === 1) scale = 2;
+                else if (distance === 2) scale = 1.5;
+
+                return (
+                  <button
+                    key={index}
+                    onClick={() => handleSetActiveModelIndex(index)}
+                    className={`${
+                      activeModelIndex === index
+                        ? "text-white font-extrabold transition-all duration-500  "
+                        : "text-neutral-500 font-light transition-all duration-500   hover:scale-150 "
+                    } font-bebas text-lg origin-left`}
+                    style={{
+                      transform: `scale(${scale})`,
+                      willChange: "transform",
+                      backfaceVisibility: "hidden",
+                      WebkitFontSmoothing: "antialiased",
+                      MozOsxFontSmoothing: "grayscale",
+                    }}
+                  >
+                    {model.name}
+                  </button>
+                );
+              })}
             </div>
 
             <div
-              className="flex lg:hidden text-white justify-center items-center relative gap-4 "
+              className="flex lg:hidden text-white justify-center items-center relative gap-2 "
               key={activeModel.id}
             >
               <button
                 onClick={handlePreviousModel}
-                className="absolute -left-4 sm:left-4 top-[320px] sm:top-1/2 -translate-y-1/2 z-20 text-white hover:scale-110 active:scale-95 transition-all duration-200"
+                className="absolute -left-4 sm:left-4 top-[200px] sm:top-[400px] -translate-y-1/2 z-20 text-white hover:scale-110 active:scale-95 transition-all duration-200"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -106,16 +130,16 @@ const Hero = () => {
               </button>
 
               <div
-                className={`absolute top-[150px] sm:-top-[150px] md:-top-[200px]  left-1/2 -translate-x-1/2 $`}
+                className={`absolute top-[10px] sm:top-[150px]   left-1/2 -translate-x-1/2 $`}
               >
-                <h1 className="motion-preset-expand  motion-duration-900 font-bebas font-extrabold text-3xl sm:text-5xl md:text-7xl whitespace-nowrap">
+                <h1 className="motion-preset-expand  motion-duration-900 font-bebas font-extrabold text-5xl  sm:text-7xl whitespace-nowrap">
                   {activeModel.name}
                 </h1>
               </div>
 
               <button
                 onClick={handleNextModel}
-                className="absolute -right-4 sm:right-4 top-[320px] sm:top-1/2 -translate-y-1/2 z-20 text-white hover:scale-110 active:scale-95 transition-all duration-200"
+                className="absolute -right-4 sm:right-4 top-[200px] sm:top-[400px]  -translate-y-1/2 z-20 text-white hover:scale-110 active:scale-95 transition-all duration-200"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -134,7 +158,7 @@ const Hero = () => {
               </button>
             </div>
 
-            <div className="w-full h-full absolute -top-10 sm:top-0 inset-0">
+            <div className="w-full h-full absolute -top-50 sm:top-0 md:-top-30 inset-0">
               <div
                 style={{ height: "95vh", width: "100%", position: "relative" }}
               >
@@ -182,7 +206,7 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="text-white w-fit  absolute top-[70%] sm:top-[80%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex  flex-row gap-3 bg-white/30 backdrop-blur-md p-2 rounded-[30px]  justify-center items-center shadow-lg border border-neutral-900">
+        <div className="text-white w-fit  absolute top-[65%] sm:top-[70%] lg:top-[80%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex  flex-row gap-3 bg-white/30 backdrop-blur-md p-2 rounded-[30px]  justify-center items-center shadow-lg border border-neutral-900">
           {activeModel.colors.map((colorObj, index) => (
             <button
               key={index}

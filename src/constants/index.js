@@ -283,7 +283,7 @@ export const calculateSizes = (isSmall, isMobile, isTablet) => {
           ? [-11, -7, -10]
           : [-11, -10, -10],
 
-    carScale: isSmall ? 8 : isMobile ? 10 : isTablet ? 12 : 16,
+    carScale: isSmall ? 8 : isMobile ? 11 : isTablet ? 12 : 17,
     carPosition: isSmall ? [0, -2, 0] : [0, -1.5, 0],
   };
 };
