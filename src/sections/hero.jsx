@@ -56,6 +56,8 @@ const Hero = () => {
     maxWidth: 1024,
   });
 
+  console.log(`is small ${isSmall}`);
+
   const sizes = calculateSizes(isSmall, isMobile, isTablet);
   console.log(activeColorIndex);
   const ModelComponent = activeModel.colors[activeColorIndex].component;
@@ -158,55 +160,61 @@ const Hero = () => {
               </button>
             </div>
 
-            <div className="w-full h-full absolute -top-50 sm:top-0 md:-top-30 inset-0">
-              <div
-                style={{ height: "95vh", width: "100%", position: "relative" }}
-              >
-                <Canvas>
-                  <Suspense fallback={<CanvasLoader />}>
-                    <OrbitControls
-                      maxPolarAngle={Math.PI / 2}
-                      enableZoom={false}
-                      enableDamping={true}
-                      dampingFactor={0.2}
-                      enablePan={true}
-                      enableRotate={true}
-                    />
-                    <PerspectiveCamera makeDefault position={[0, 0, 27]} />
-                    <ambientLight intensity={0.6} color="#ffb380" />
-                    <directionalLight
-                      position={[0, 10, 0]}
-                      intensity={3.5}
-                      castShadow
-                    />
+            <div className="relative flex w-full h-full  ">
+              <div className="w-full h-full absolute -top-[30%] sm:top-0 md:-top-30 inset-0">
+                <div
+                  style={{
+                    height: "95vh",
+                    width: "100%",
+                    position: "relative",
+                  }}
+                >
+                  <Canvas>
+                    <Suspense fallback={<CanvasLoader />}>
+                      <OrbitControls
+                        maxPolarAngle={Math.PI / 2}
+                        enableZoom={false}
+                        enableDamping={true}
+                        dampingFactor={0.2}
+                        enablePan={true}
+                        enableRotate={true}
+                      />
+                      <PerspectiveCamera makeDefault position={[0, 0, 27]} />
+                      <ambientLight intensity={0.6} color="#ffb380" />
+                      <directionalLight
+                        position={[0, 10, 0]}
+                        intensity={3.5}
+                        castShadow
+                      />
 
-                    <directionalLight
-                      position={[-10, 0, 0]}
-                      intensity={0.8}
-                      castShadow
-                    />
-                    <directionalLight
-                      position={[10, 0, 0]}
-                      intensity={0.8}
-                      castShadow
-                    />
+                      <directionalLight
+                        position={[-10, 0, 0]}
+                        intensity={0.8}
+                        castShadow
+                      />
+                      <directionalLight
+                        position={[10, 0, 0]}
+                        intensity={0.8}
+                        castShadow
+                      />
 
-                    <ModelComponent
-                      key={`${activeModel.id}-${activeColorIndex}`}
-                      animationKey={`${activeModel.id}-${activeColorIndex}`}
-                      scale={sizes.carScale}
-                      position={sizes.carPosition}
-                      rotation={defaultCarRotation}
-                      wireframe={false}
-                    />
-                  </Suspense>
-                </Canvas>
+                      <ModelComponent
+                        key={`${activeModel.id}-${activeColorIndex}`}
+                        animationKey={`${activeModel.id}-${activeColorIndex}`}
+                        scale={sizes.carScale}
+                        position={sizes.carPosition}
+                        rotation={defaultCarRotation}
+                        wireframe={false}
+                      />
+                    </Suspense>
+                  </Canvas>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="text-white w-fit  absolute top-[65%] sm:top-[70%] lg:top-[80%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex  flex-row gap-3 bg-white/30 backdrop-blur-md p-2 rounded-[30px]  justify-center items-center shadow-lg border border-neutral-900">
+        <div className="text-white w-fit  absolute top-[65%] sm:top-[75%]   lg:top-[80%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex  flex-row gap-3 bg-white/30 backdrop-blur-md p-2 rounded-[30px]  justify-center items-center shadow-lg border border-neutral-900">
           {activeModel.colors.map((colorObj, index) => (
             <button
               key={index}
