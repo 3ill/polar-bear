@@ -1,6 +1,11 @@
 import BlackJac from "../components/blac-jac";
+import BlackJacRemastered from "../components/black-jac-remastered";
+import BlackTruck from "../components/black-truck";
 import RedJac from "../components/red-jac";
+import RedJacRemastered from "../components/red-jac-remastered";
+import RedSUV from "../components/red-suv";
 import WhiteJac from "../components/white-jac";
+import WhiteSuv from "../components/white-suv";
 
 export const navLinks = [
   {
