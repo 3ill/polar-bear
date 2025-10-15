@@ -1,3 +1,24 @@
+import {
+  JS201,
+  JS202,
+  JS205,
+  JS206,
+  JS207,
+  JS208,
+  JS209,
+  JS210,
+  JS211,
+  JS212,
+  JS213,
+  JS214,
+  JS301,
+  JS304,
+  JS305,
+  JS306,
+  JS307,
+  JS308,
+  JS309,
+} from "../../public/assets";
 import BlackJac from "../components/blac-jac";
 import BlackJacRemastered from "../components/black-jac-remastered";
 import BlackTruck from "../components/black-truck";
@@ -398,48 +419,39 @@ export const Model2JacColors = [
   },
 ];
 
-export const Model3JacColors = [
-  {
-    color: "bg-red-500",
-    component: RedJac,
-  },
-  {
-    color: "bg-blue-500",
-    component: RedJac,
-  },
-  {
-    color: "bg-green-500",
-    component: RedJac,
-  },
-];
-
-export function getActiveModel({ id, color }) {
-  if (id === "redJac") {
-    return Model1JacColors.find((model) => model.color === color);
-  } else if (id === "blueJac") {
-    return Model2JacColors.find((model) => model.color === color);
-  } else if (id === "greenJac") {
-    return Model3JacColors.find((model) => model.color === color);
-  }
-}
-
 export const VehicleGallery = [
   {
-    name: "model 1 prime",
+    name: "JS2",
     description: "where comfort meets elegance",
     borderColor: "border-cyan-500",
     iconColor: "text-cyan-500",
+    images: [
+      JS201,
+      JS202,
+      JS205,
+      JS206,
+      JS207,
+      JS208,
+      JS209,
+      JS210,
+      JS211,
+      JS212,
+      JS213,
+      JS214,
+    ],
   },
   {
-    name: "model 2 forester",
-    description: "travel with comfort",
+    name: "JS3",
+    description: "Ultra Sleek, Ultra Performance",
     borderColor: "border-indigo-500",
     iconColor: "text-indigo-500",
+    images: [JS301, JS304, JS305, JS306, JS307, JS308, JS309],
   },
   {
     name: "model 3 vesta",
     description: "super charge your experience",
     borderColor: "border-neutral-500",
     iconColor: "text-neutral-500",
+    images: [JS201, JS202, JS205, JS206, JS207],
   },
 ];
