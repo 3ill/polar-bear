@@ -18,6 +18,16 @@ import {
   JS307,
   JS308,
   JS309,
+  JS401,
+  JS402,
+  JS403,
+  JS406,
+  JS407,
+  JS408,
+  JS409,
+  JS410,
+  JS412,
+  JS413,
 } from "../../public/assets";
 import BlackJac from "../components/blac-jac";
 import BlackJacRemastered from "../components/black-jac-remastered";
@@ -448,10 +458,21 @@ export const VehicleGallery = [
     images: [JS301, JS304, JS305, JS306, JS307, JS308, JS309],
   },
   {
-    name: "model 3 vesta",
+    name: "JS4",
     description: "super charge your experience",
     borderColor: "border-neutral-500",
     iconColor: "text-neutral-500",
-    images: [JS201, JS202, JS205, JS206, JS207],
+    images: [
+      JS401,
+      JS402,
+      JS403,
+      JS406,
+      JS407,
+      JS408,
+      JS409,
+      JS410,
+      JS412,
+      JS413,
+    ],
   },
 ];
