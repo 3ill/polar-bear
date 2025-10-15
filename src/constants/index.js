@@ -29,14 +29,10 @@ import {
   JS412,
   JS413,
 } from "../../public/assets";
-import BlackJac from "../components/blac-jac";
-import BlackJacRemastered from "../components/black-jac-remastered";
-import BlackTruck from "../components/black-truck";
-import RedJac from "../components/red-jac";
-import RedJacRemastered from "../components/red-jac-remastered";
+import BlackSUV from "../components/black-suv";
 import RedSUV from "../components/red-suv";
-import WhiteJac from "../components/white-jac";
-import WhiteSuv from "../components/white-suv";
+import RedJac from "../components/red-suv";
+import WhiteSUV from "../components/white-suv";
 
 export const navLinks = [
   {
@@ -359,73 +355,30 @@ export const workExperiences = [
 
 export const Models = [
   {
-    id: "redJac",
-    name: "Model 1 Jac GL",
-    component: RedJac,
+    id: "JAC-JS8-SUV",
+    name: "JS8",
+    component: BlackSUV,
     defaultScale: 15,
     defaultPosition: [0, -2, 0],
     defaultRotation: [0, Math.PI / 2, 0],
     colors: [
-      { color: "bg-red-500", component: RedJac },
-      { color: "bg-white", component: WhiteJac },
-      { color: "bg-black", component: BlackJac },
+      { color: "bg-white", component: WhiteSUV },
+      { color: "bg-black", component: BlackSUV },
+      { color: "bg-red-500", component: RedSUV },
     ],
   },
   {
-    id: "blueJac",
-    name: "Model 2 Jac GL",
-    component: RedJac,
+    id: "JAC-T9-TRUCK",
+    name: "T9",
+    component: RedSUV,
     defaultScale: 15,
     defaultPosition: [0, -2, 0],
     defaultRotation: [0, Math.PI / 2, 0],
     colors: [
-      { color: "bg-red-500", component: RedJac },
-      { color: "bg-blue-500", component: RedJac },
-      { color: "bg-green-500", component: RedJac },
+      { color: "bg-red-500", component: RedSUV },
+      { color: "bg-blue-500", component: RedSUV },
+      { color: "bg-green-500", component: RedSUV },
     ],
-  },
-  {
-    id: "greenJac",
-    name: "Model 3 Jac GL",
-    component: RedJac,
-    defaultScale: 15,
-    defaultPosition: [0, -2, 0],
-    defaultRotation: [0, Math.PI / 2, 0],
-    colors: [
-      { color: "bg-red-500", component: RedJac },
-      { color: "bg-blue-500", component: RedJac },
-      { color: "bg-green-500", component: RedJac },
-    ],
-  },
-];
-
-export const Model1JacColors = [
-  {
-    color: "bg-red-500",
-    component: RedJac,
-  },
-  {
-    color: "bg-blue-500",
-    component: RedJac,
-  },
-  {
-    color: "bg-green-500",
-    component: RedJac,
-  },
-];
-
-export const Model2JacColors = [
-  {
-    color: "bg-red-500",
-    component: RedJac,
-  },
-  {
-    color: "bg-blue-500",
-    component: RedJac,
-  },
-  {
-    color: "bg-green-500",
-    component: RedJac,
   },
 ];
 
