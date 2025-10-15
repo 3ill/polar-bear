@@ -1,13 +1,17 @@
 import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import { Suspense, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import CanvasLoader from "../components/canvas-loader";
 import { calculateSizes, Models } from "../constants";
+import { useRef } from "react";
 
 const Hero = () => {
   const [activeModelIndex, setActiveModelIndex] = useState(0);
   const [activeColorIndex, setActiveColorIndex] = useState(0);
+  const [sliderStyle, setSliderStyle] = useState({ left: 0, width: 0 });
+  const buttonRefs = useRef([]);
+  const containerRef = useRef(null);
   const [defaultCarRotation, setDefaultCarRotation] = useState([
     0,
     Math.PI / 2,
@@ -16,6 +20,23 @@ const Hero = () => {
   console.log(activeModelIndex);
   const activeModel = Models[activeModelIndex];
   console.log(activeModel);
+
+  useEffect(() => {
+    const updateSliderPosition = () => {
+      if (buttonRefs.current[activeModelIndex] && containerRef.current) {
+        const button = buttonRefs.current[activeModelIndex];
+
+        setSliderStyle({
+          left: button.offsetLeft,
+          width: button.offsetWidth,
+        });
+      }
+    };
+
+    setTimeout(updateSliderPosition, 0);
+    window.addEventListener("resize", updateSliderPosition);
+    return () => window.removeEventListener("resize", updateSliderPosition);
+  }, [activeModelIndex]);
 
   const handleSetActiveModelIndex = (index) => {
     setDefaultCarRotation([0, Math.PI / 2, 0]);
@@ -39,11 +60,6 @@ const Hero = () => {
     handleSetActiveModelIndex(newIndex);
   };
 
-  // const controls = useControls("RedJac", {
-  //   position: [0, -2, 0],
-  //   scale: 15,
-  //   rotation: [0, Math.PI / 2, 0],
-  // });
   const isSmall = useMediaQuery({
     maxWidth: 440,
   });
@@ -56,57 +72,65 @@ const Hero = () => {
     maxWidth: 1024,
   });
 
-  console.log(`is small ${isSmall}`);
-
   const sizes = calculateSizes(isSmall, isMobile, isTablet);
   console.log(activeColorIndex);
   const ModelComponent = activeModel.colors[activeColorIndex].component;
 
   return (
     <section id="home" className=" w-full flex flex-col relative">
-      <div className="w-full mx-auto flex flex-col sm:mt-5 mt-0 c-space gap-3 relative">
-        <div className="flex flex-col w-full max-w-[200px]">
-          <a href="/" className="">
-            <img
-              src={"assets/jac-logo.jpg"}
-              alt="logo"
-              className="object-contain w-30 h-30"
+      <div className="w-full mx-auto flex flex-col sm:mt-5 mt-0 c-space gap-3 ">
+        <div className="flex flex-row items-center w-full relative">
+          <div className="flex w-full max-w-[200px]">
+            <a href="/" className="">
+              <img
+                src={"assets/jac-logo.jpg"}
+                alt="logo"
+                className="object-contain w-30 h-30"
+              />
+            </a>
+          </div>
+
+          {/* Floating Model Toggle*/}
+          <div
+            ref={containerRef}
+            className="hidden lg:flex absolute origin-center left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 gap-3 bg-white/20 backdrop-blur-md p-2 rounded-[30px]  justify-center items-center shadow-lg border border-neutral-900 z-50"
+          >
+            <div
+              className="absolute h-[calc(100%-16px)] bg-gradient-to-r from-neutral-800 to-neutral-700 rounded-[24px] transition-all duration-500 ease-out shadow-md pointer-events-none"
+              style={{
+                left: `${sliderStyle.left}px`,
+                width: `${sliderStyle.width}px`,
+              }}
             />
-          </a>
+
+            {Models.map((model, index) => {
+              return (
+                <button
+                  key={index}
+                  ref={(el) => (buttonRefs.current[index] = el)}
+                  onClick={() => handleSetActiveModelIndex(index)}
+                  className={`${
+                    activeModelIndex === index
+                      ? "text-white font-extrabold transition-all duration-500  "
+                      : "text-neutral-500 font-light transition-all duration-500 "
+                  } font-bebas text-lg  relative z-10 px-4 py-2`}
+                  style={{
+                    willChange: "transform",
+                    backfaceVisibility: "hidden",
+                    WebkitFontSmoothing: "antialiased",
+                    MozOsxFontSmoothing: "grayscale",
+                  }}
+                >
+                  {model.name}
+                </button>
+              );
+            })}
+          </div>
         </div>
+
         <div className="flex w-full h-screen  relative pt-20 sm:pt-0">
           <div className="flex w-full flex-col lg:flex-row">
-            <div className="lg:flex absolute origin-left top-30 lg:flex-col gap-10 z-10 mt-4 flex-wrap hidden">
-              {Models.map((model, index) => {
-                const distance = Math.abs(activeModelIndex - index);
-                let scale = 1;
-                if (distance === 0) scale = 4;
-                else if (distance === 1) scale = 2;
-                else if (distance === 2) scale = 1.5;
-
-                return (
-                  <button
-                    key={index}
-                    onClick={() => handleSetActiveModelIndex(index)}
-                    className={`${
-                      activeModelIndex === index
-                        ? "text-white font-extrabold transition-all duration-500  "
-                        : "text-neutral-500 font-light transition-all duration-500   hover:scale-150 "
-                    } font-bebas text-lg origin-left`}
-                    style={{
-                      transform: `scale(${scale})`,
-                      willChange: "transform",
-                      backfaceVisibility: "hidden",
-                      WebkitFontSmoothing: "antialiased",
-                      MozOsxFontSmoothing: "grayscale",
-                    }}
-                  >
-                    {model.name}
-                  </button>
-                );
-              })}
-            </div>
-
+            {/* Controls fot tab and Mobile Displays*/}
             <div
               className="flex lg:hidden text-white justify-center items-center relative gap-2 "
               key={activeModel.id}
@@ -214,7 +238,7 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="text-white w-fit  absolute top-[65%] sm:top-[75%]   lg:top-[80%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex  flex-row gap-3 bg-white/30 backdrop-blur-md p-2 rounded-[30px]  justify-center items-center shadow-lg border border-neutral-900">
+        <div className="text-white w-fit  absolute top-[65%] sm:top-[75%]   lg:top-[80%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex  flex-row gap-3 bg-white/20 backdrop-blur-md p-2 rounded-[30px]  justify-center items-center shadow-lg border border-neutral-900">
           {activeModel.colors.map((colorObj, index) => (
             <button
               key={index}
