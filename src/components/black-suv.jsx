@@ -1,8 +1,7 @@
 import { useGSAP } from "@gsap/react";
-import { useGLTF, useTexture } from "@react-three/drei";
+import { useGLTF } from "@react-three/drei";
 import { useGraph, useThree } from "@react-three/fiber";
 import gsap from "gsap";
-import { useEffect } from "react";
 import { useMemo, useRef } from "react";
 import { useMediaQuery } from "react-responsive";
 import { SkeletonUtils } from "three-stdlib";
@@ -19,12 +18,6 @@ const BlackSUV = (props) => {
   const isSmall = useMediaQuery({
     maxWidth: 440,
   });
-  const texture = useTexture("textures/jac-back-logo.png");
-  useEffect(() => {
-    if (texture) {
-      texture.flipY = false;
-    }
-  }, [texture]);
 
   const defaultPos = isSmall ? [0, -2, 0] : [0, -1.5, 0];
 
