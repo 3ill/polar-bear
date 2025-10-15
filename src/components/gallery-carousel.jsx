@@ -37,8 +37,8 @@ const GalleryCarousel = ({ iconColor, images }) => {
                     <img
                       src={image}
                       alt={`Image ${index + 1}`}
-                      loading={index === 0 ? "eager" : "lazy"}
-                      fetchpriority={index === 0 ? "high" : "auto"}
+                      loading="eager"
+                      fetchpriority="high"
                       className="rounded-[15px] object-cover object-center"
                     />
                   </CardContent>
