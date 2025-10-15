@@ -34,8 +34,8 @@ const Gallery = () => {
                 </div>
                 <div className="w-full ">
                   <GalleryCarousel
-                    borderColor={vehicle.borderColor}
                     iconColor={vehicle.iconColor}
+                    images={vehicle.images}
                   />
                 </div>
               </div>
