@@ -77,15 +77,15 @@ const Hero = () => {
   const ModelComponent = activeModel.colors[activeColorIndex].component;
 
   return (
-    <section id="home" className=" w-full flex flex-col relative">
-      <div className="w-full mx-auto flex flex-col sm:mt-5 mt-0 c-space gap-3 ">
-        <div className="flex flex-row items-center w-full relative">
+    <section id="home" className="relative flex w-full flex-col">
+      <div className="c-space mx-auto mt-0 flex w-full flex-col gap-3 sm:mt-5">
+        <div className="relative flex w-full flex-row items-center">
           <div className="flex w-full max-w-[200px]">
             <a href="/" className="">
               <img
                 src={"assets/jac-logo.jpg"}
                 alt="logo"
-                className="object-contain w-30 h-30"
+                className="h-30 w-30 object-contain"
               />
             </a>
           </div>
@@ -93,10 +93,10 @@ const Hero = () => {
           {/* Floating Model Toggle*/}
           <div
             ref={containerRef}
-            className="hidden lg:flex absolute origin-center left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 gap-3 bg-white/20 backdrop-blur-md p-2 rounded-[30px]  justify-center items-center shadow-lg border border-neutral-900 z-50"
+            className="absolute top-1/2 left-1/2 z-50 hidden origin-center -translate-x-1/2 -translate-y-1/2 items-center justify-center gap-3 rounded-[30px] border border-neutral-900 bg-white/20 p-2 shadow-lg backdrop-blur-md lg:flex"
           >
             <div
-              className="absolute h-[calc(100%-16px)] bg-white/20 rounded-[24px] transition-all duration-500 opacity-50 backdrop-blur-md ease-out shadow-md pointer-events-none"
+              className="pointer-events-none absolute h-[calc(100%-16px)] rounded-[24px] bg-white/20 opacity-50 shadow-md backdrop-blur-md transition-all duration-500 ease-out"
               style={{
                 left: `${sliderStyle.left}px`,
                 width: `${sliderStyle.width}px`,
@@ -111,9 +111,9 @@ const Hero = () => {
                   onClick={() => handleSetActiveModelIndex(index)}
                   className={`${
                     activeModelIndex === index
-                      ? "text-white font-extrabold transition-all duration-500  "
-                      : "text-neutral-500 font-light transition-all duration-500 "
-                  } font-bebas text-lg  relative z-10 px-4 py-2`}
+                      ? "font-extrabold text-white transition-all duration-500 "
+                      : "font-light text-neutral-500 transition-all duration-500 "
+                  } font-bebas relative z-10 px-4 py-2 text-lg`}
                   style={{
                     willChange: "transform",
                     backfaceVisibility: "hidden",
@@ -128,16 +128,16 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="flex w-full h-screen  relative pt-20 sm:pt-0">
+        <div className="relative flex h-screen w-full pt-20 sm:pt-0">
           <div className="flex w-full flex-col lg:flex-row">
             {/* Controls fot tab and Mobile Displays*/}
             <div
-              className="flex lg:hidden text-white justify-center items-center relative gap-2 "
+              className="relative flex items-center justify-center gap-2 text-white lg:hidden"
               key={activeModel.id}
             >
               <button
                 onClick={handlePreviousModel}
-                className="absolute -left-4 sm:left-4 top-[200px] sm:top-[400px] -translate-y-1/2 z-20 text-white hover:scale-110 active:scale-95 transition-all duration-200"
+                className="absolute top-[200px] -left-4 z-20 -translate-y-1/2 text-white transition-all duration-200 hover:scale-110 active:scale-95 sm:top-[400px] sm:left-4"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -145,7 +145,7 @@ const Hero = () => {
                   viewBox="0 0 24 24"
                   strokeWidth={2}
                   stroke="currentColor"
-                  className="w-4 h-4 sm:w-8 sm:h-8"
+                  className="h-4 w-4 sm:h-8 sm:w-8"
                 >
                   <path
                     strokeLinecap="round"
@@ -156,16 +156,16 @@ const Hero = () => {
               </button>
 
               <div
-                className={`absolute top-[10px] sm:top-[150px]   left-1/2 -translate-x-1/2 $`}
+                className={`$ absolute top-[10px] left-1/2 -translate-x-1/2 sm:top-[150px]`}
               >
-                <h1 className="motion-preset-expand  motion-duration-900 font-bebas font-extrabold text-5xl  sm:text-7xl whitespace-nowrap">
+                <h1 className="motion-preset-expand motion-duration-900 font-bebas text-5xl font-extrabold whitespace-nowrap sm:text-7xl">
                   {activeModel.name}
                 </h1>
               </div>
 
               <button
                 onClick={handleNextModel}
-                className="absolute -right-4 sm:right-4 top-[200px] sm:top-[400px]  -translate-y-1/2 z-20 text-white hover:scale-110 active:scale-95 transition-all duration-200"
+                className="absolute top-[200px] -right-4 z-20 -translate-y-1/2 text-white transition-all duration-200 hover:scale-110 active:scale-95 sm:top-[400px] sm:right-4"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -173,7 +173,7 @@ const Hero = () => {
                   viewBox="0 0 24 24"
                   strokeWidth={2}
                   stroke="currentColor"
-                  className="w-4 h-4 sm:w-8 sm:h-8"
+                  className="h-4 w-4 sm:h-8 sm:w-8"
                 >
                   <path
                     strokeLinecap="round"
@@ -184,8 +184,8 @@ const Hero = () => {
               </button>
             </div>
 
-            <div className="relative flex w-full h-full  ">
-              <div className="w-full h-full absolute -top-[30%] sm:top-0 md:-top-30 inset-0">
+            <div className="relative flex h-full w-full">
+              <div className="absolute inset-0 -top-[30%] h-full w-full sm:top-0 md:-top-30">
                 <div
                   style={{
                     height: "95vh",
@@ -238,14 +238,14 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="text-white w-fit  absolute top-[65%] sm:top-[75%]   lg:top-[80%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex  flex-row gap-3 bg-white/20 backdrop-blur-md p-2 rounded-[30px]  justify-center items-center shadow-lg border border-neutral-900">
+        <div className="absolute top-[65%] left-1/2 flex w-fit -translate-x-1/2 -translate-y-1/2 transform flex-row items-center justify-center gap-3 rounded-[30px] border border-neutral-900 bg-white/20 p-2 text-white shadow-lg backdrop-blur-md sm:top-[75%] lg:top-[80%]">
           {activeModel.colors.map((colorObj, index) => (
             <button
               key={index}
               onClick={() => handleSetActiveColorIndex(index)}
-              className={`w-4 h-4 rounded-full ${colorObj.color} transition-all shadow-md duration-300 ${
+              className={`h-4 w-4 rounded-full ${colorObj.color} shadow-md transition-all duration-300 ${
                 activeColorIndex === index
-                  ? "w-8 transition-all duration-300 opacity-100 "
+                  ? "w-8 opacity-100 transition-all duration-300 "
                   : "opacity-30 hover:opacity-75 "
               }`}
             />
