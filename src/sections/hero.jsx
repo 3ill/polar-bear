@@ -96,7 +96,7 @@ const Hero = () => {
             className="hidden lg:flex absolute origin-center left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 gap-3 bg-white/20 backdrop-blur-md p-2 rounded-[30px]  justify-center items-center shadow-lg border border-neutral-900 z-50"
           >
             <div
-              className="absolute h-[calc(100%-16px)] bg-gradient-to-r from-neutral-800 to-neutral-700 rounded-[24px] transition-all duration-500 ease-out shadow-md pointer-events-none"
+              className="absolute h-[calc(100%-16px)] bg-white/20 rounded-[24px] transition-all duration-500 opacity-50 backdrop-blur-md ease-out shadow-md pointer-events-none"
               style={{
                 left: `${sliderStyle.left}px`,
                 width: `${sliderStyle.width}px`,
@@ -243,10 +243,10 @@ const Hero = () => {
             <button
               key={index}
               onClick={() => handleSetActiveColorIndex(index)}
-              className={`w-4 h-4 rounded-full ${colorObj.color} transition-all duration-300 ${
+              className={`w-4 h-4 rounded-full ${colorObj.color} transition-all shadow-md duration-300 ${
                 activeColorIndex === index
-                  ? "w-8 transition-all duration-300 opacity-100 border border-neutral-600"
-                  : "opacity-30 hover:opacity-75 border border-transparent"
+                  ? "w-8 transition-all duration-300 opacity-100 "
+                  : "opacity-30 hover:opacity-75 "
               }`}
             />
           ))}
