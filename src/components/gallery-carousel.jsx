@@ -9,7 +9,7 @@ import {
 } from "../ui/carousel";
 import { useState } from "react";
 
-const GalleryCarousel = ({ borderColor, iconColor }) => {
+const GalleryCarousel = ({ iconColor, images }) => {
   const [shouldAutoPlay, setShouldAutoPlay] = useState(true);
   return (
     <section
@@ -29,14 +29,16 @@ const GalleryCarousel = ({ borderColor, iconColor }) => {
         className="w-full lg:w-[600px]"
       >
         <CarouselContent>
-          {Array.from({ length: 5 }).map((_, index) => (
+          {images.map((image, index) => (
             <CarouselItem key={index}>
               <div className="p-1">
-                <Card className={`${borderColor}`}>
-                  <CardContent className="flex aspect-square items-center justify-center p-6">
-                    <span className="text-4xl text-white font-semibold">
-                      {index + 1}
-                    </span>
+                <Card>
+                  <CardContent className="flex aspect-video   items-center justify-center ">
+                    <img
+                      src={image}
+                      alt={`Image ${index + 1}`}
+                      className="object-center object-cover rounded-[15px]"
+                    />
                   </CardContent>
                 </Card>
               </div>
