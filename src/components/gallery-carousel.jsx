@@ -33,11 +33,13 @@ const GalleryCarousel = ({ iconColor, images }) => {
             <CarouselItem key={index}>
               <div className="p-1">
                 <Card>
-                  <CardContent className="flex aspect-video   items-center justify-center ">
+                  <CardContent className="flex aspect-video items-center justify-center">
                     <img
                       src={image}
                       alt={`Image ${index + 1}`}
-                      className="object-center object-cover rounded-[15px]"
+                      loading={index === 0 ? "eager" : "lazy"}
+                      fetchpriority={index === 0 ? "high" : "auto"}
+                      className="rounded-[15px] object-cover object-center"
                     />
                   </CardContent>
                 </Card>
