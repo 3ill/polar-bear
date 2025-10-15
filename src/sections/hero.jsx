@@ -1,4 +1,8 @@
-import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
+import {
+  Environment,
+  OrbitControls,
+  PerspectiveCamera,
+} from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { Suspense, useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
@@ -193,7 +197,7 @@ const Hero = () => {
                     position: "relative",
                   }}
                 >
-                  <Canvas>
+                  <Canvas gl={{ toneMappingExposure: 0.45 }}>
                     <Suspense fallback={<CanvasLoader />}>
                       <OrbitControls
                         maxPolarAngle={Math.PI / 2}
@@ -204,22 +208,35 @@ const Hero = () => {
                         enableRotate={true}
                       />
                       <PerspectiveCamera makeDefault position={[0, 0, 27]} />
+
                       <ambientLight intensity={0.6} color="#ffb380" />
                       <directionalLight
                         position={[0, 10, 0]}
-                        intensity={3.5}
+                        intensity={5}
                         castShadow
                       />
 
                       <directionalLight
                         position={[-10, 0, 0]}
-                        intensity={0.8}
+                        intensity={3.5}
                         castShadow
                       />
                       <directionalLight
                         position={[10, 0, 0]}
-                        intensity={0.8}
+                        intensity={5}
                         castShadow
+                      />
+                      <directionalLight
+                        position={[0, 0, 27]}
+                        intensity={0.5}
+                        castShadow
+                      />
+                      <Environment
+                        files="/small-studio.hdr"
+                        background={false}
+                        backgroundIntensity={0.3}
+                        envMapIntensity={0.05}
+                        resolution={1080}
                       />
 
                       <ModelComponent
