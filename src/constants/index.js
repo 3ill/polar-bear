@@ -30,6 +30,9 @@ import {
   JS413,
 } from "../../public/assets";
 import BlackSUV from "../components/black-suv";
+import BlackTruck from "../components/black-truck";
+import BlueTruck from "../components/blue-truck";
+import GreyTruck from "../components/grey-truck";
 import RedSUV from "../components/red-suv";
 import RedJac from "../components/red-suv";
 import WhiteSUV from "../components/white-suv";
@@ -375,9 +378,9 @@ export const Models = [
     defaultPosition: [0, -2, 0],
     defaultRotation: [0, Math.PI / 2, 0],
     colors: [
-      { color: "bg-red-500", component: RedSUV },
-      { color: "bg-blue-500", component: RedSUV },
-      { color: "bg-green-500", component: RedSUV },
+      { color: "bg-black", component: BlackTruck },
+      { color: "bg-cyan-800", component: BlueTruck },
+      { color: "bg-neutral-600", component: GreyTruck },
     ],
   },
 ];
