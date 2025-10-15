@@ -7,10 +7,46 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "../ui/carousel";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const GalleryCarousel = ({ iconColor, images }) => {
   const [shouldAutoPlay, setShouldAutoPlay] = useState(true);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+
+  useEffect(() => {
+    const imagePromises = images.map((src) => {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.src = src;
+        img.onload = resolve;
+        img.onerror = reject;
+      });
+    });
+
+    Promise.all(imagePromises)
+      .then(() => {
+        setImagesLoaded(true);
+      })
+      .catch((error) => {
+        console.error("Error preloading images:", error);
+        setImagesLoaded(true);
+      });
+  }, [images]);
+
+  if (!imagesLoaded) {
+    return (
+      <section className="w-full lg:w-[600px]">
+        <div className="p-1">
+          <Card>
+            <CardContent className="flex aspect-video items-center justify-center">
+              <div className="h-full w-full animate-pulse rounded-[15px] bg-gray-200" />
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section
       onMouseEnter={() => setShouldAutoPlay(false)}
@@ -37,8 +73,6 @@ const GalleryCarousel = ({ iconColor, images }) => {
                     <img
                       src={image}
                       alt={`Image ${index + 1}`}
-                      loading="eager"
-                      fetchpriority="high"
                       className="rounded-[15px] object-cover object-center"
                     />
                   </CardContent>
