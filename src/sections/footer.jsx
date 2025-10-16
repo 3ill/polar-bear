@@ -2,15 +2,15 @@ import TextEffectWithExit from "../components/text-effect";
 
 const Footer = () => {
   return (
-    <section className="c-space pt-7 pb-3 border-t border-black-300 flex flex-col  items-center gap-5 relative w-full overflow-x-hidden overflow-y-hidden">
-      <div className="text-white-500 flex gap-2 absolute top-1 origin-top-left scale-[1]">
+    <section className="c-space border-black-300 relative flex w-full flex-col items-center gap-5 overflow-x-hidden overflow-y-hidden border-t pt-7 pb-3">
+      <div className="absolute top-1 flex origin-top-left scale-[1] gap-2 text-black dark:text-white">
         <TextEffectWithExit
           text="Powered by Polar Bear"
-          style="text-white text-sm font-bold"
+          style=" text-sm font-bold"
         />
       </div>
 
-      <p className="text-neutral-500 font-grotesk font-normal mt-[25px] text-[12px] self-center text-center">
+      <p className="font-grotesk mt-[25px] self-center text-center text-[12px] font-normal text-neutral-800 dark:text-neutral-200">
         2025, All Rights Reserved
       </p>
     </section>
