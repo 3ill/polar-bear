@@ -9,6 +9,7 @@ import { useMediaQuery } from "react-responsive";
 import CanvasLoader from "../components/canvas-loader";
 import { calculateSizes, Models } from "../constants";
 import { useRef } from "react";
+import Stars from "../components/stars";
 
 const Hero = () => {
   const [activeModelIndex, setActiveModelIndex] = useState(0);
@@ -26,6 +27,30 @@ const Hero = () => {
   console.log(activeModel);
 
   useEffect(() => {
+    const images = [
+      "/assets/JS2/JS2-EX-001.jpg",
+      "/assets/JS2/JS2-EX-002.jpg",
+      "/assets/JS2/JS2-EX-005.jpg",
+      "/assets/JS2/JS2-EX-009.jpg",
+      // JS3
+      "/assets/JS3/JS3-EX-001.jpg",
+      "/assets/JS3/JS3-EX-004.jpg",
+      "/assets/JS3/JS3-EX-005.jpg",
+      "/assets/JS3/JS3-EX-006.jpg",
+      // JS4
+      "/assets/JS4/JS4-EX-001.jpg",
+      "/assets/JS4/JS4-EX-002.jpg",
+      "/assets/JS4/JS4-EX-003.jpg",
+      "/assets/JS4/JS4-EX-006.jpg",
+    ];
+    images.map((src) => {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.src = src;
+        img.onload = resolve;
+        img.onerror = reject;
+      });
+    });
     const updateSliderPosition = () => {
       if (buttonRefs.current[activeModelIndex] && containerRef.current) {
         const button = buttonRefs.current[activeModelIndex];
@@ -76,6 +101,18 @@ const Hero = () => {
     maxWidth: 1024,
   });
 
+  if (isSmall || isMobile || isTablet) {
+    return (
+      <section className="flex h-screen w-full items-center justify-center">
+        <div className="flex flex-col items-center justify-center">
+          <span className="font-bebas mt-4 text-white">
+            View on Desktop for the best experience
+          </span>
+        </div>
+      </section>
+    );
+  }
+
   const sizes = calculateSizes(isSmall, isMobile, isTablet);
   console.log(activeColorIndex);
   const ModelComponent = activeModel.colors[activeColorIndex].component;
@@ -89,7 +126,7 @@ const Hero = () => {
               <img
                 src={"assets/jac-logo.jpg"}
                 alt="logo"
-                className="h-30 w-30 object-contain"
+                className="h-40 w-50 object-contain"
               />
             </a>
           </div>
@@ -97,10 +134,10 @@ const Hero = () => {
           {/* Floating Model Toggle*/}
           <div
             ref={containerRef}
-            className="absolute top-1/2 left-1/2 z-50 hidden origin-center -translate-x-1/2 -translate-y-1/2 items-center justify-center gap-3 rounded-[30px] border border-neutral-900 bg-white/20 p-2 shadow-lg backdrop-blur-md lg:flex"
+            className="absolute top-1/2 left-1/2 z-50 hidden origin-center -translate-x-1/2 -translate-y-1/2 items-center justify-center gap-3 rounded-[50px] border border-neutral-900 bg-white/20 px-2 py-3 shadow-lg backdrop-blur-md lg:flex"
           >
             <div
-              className="pointer-events-none absolute h-[calc(100%-16px)] rounded-[24px] bg-white/20 opacity-50 shadow-md backdrop-blur-md transition-all duration-500 ease-out"
+              className="pointer-events-none absolute h-[calc(100%-16px)] rounded-[50px] bg-white/20 opacity-50 shadow-md backdrop-blur-md transition-all duration-500 ease-out"
               style={{
                 left: `${sliderStyle.left}px`,
                 width: `${sliderStyle.width}px`,
@@ -117,7 +154,7 @@ const Hero = () => {
                     activeModelIndex === index
                       ? "font-extrabold text-white transition-all duration-500 "
                       : "font-light text-neutral-500 transition-all duration-500 "
-                  } font-bebas relative z-10 px-4 py-2 text-lg`}
+                  } font-bebas relative z-10 px-4 py-2 text-2xl`}
                   style={{
                     willChange: "transform",
                     backfaceVisibility: "hidden",
@@ -188,6 +225,7 @@ const Hero = () => {
               </button>
             </div>
 
+            {/* 3D Canvas */}
             <div className="relative flex h-full w-full">
               <div className="absolute inset-0 -top-[30%] h-full w-full sm:top-0 md:-top-30">
                 <div
@@ -238,31 +276,55 @@ const Hero = () => {
                         envMapIntensity={0.05}
                         resolution={1080}
                       />
-
-                      <ModelComponent
-                        key={`${activeModel.id}-${activeColorIndex}`}
-                        animationKey={`${activeModel.id}-${activeColorIndex}`}
-                        scale={sizes.carScale}
-                        position={sizes.carPosition}
-                        rotation={defaultCarRotation}
-                        wireframe={false}
-                      />
+                      <Stars />
+                      {ModelComponent &&
+                        !["JS2", "JS3", "JS4"].includes(activeModel.name) && (
+                          <ModelComponent
+                            key={`${activeModel.id}-${activeColorIndex}`}
+                            animationKey={`${activeModel.id}-${activeColorIndex}`}
+                            scale={sizes.carScale}
+                            position={sizes.carPosition}
+                            rotation={defaultCarRotation}
+                            wireframe={false}
+                          />
+                        )}
                     </Suspense>
                   </Canvas>
+                  {["JS2", "JS3", "JS4"].includes(activeModel.name) &&
+                    activeModel.colors[activeColorIndex].image && (
+                      <img
+                        key={activeModel.colors[activeColorIndex].image}
+                        src={activeModel.colors[activeColorIndex].image}
+                        alt={`${activeModel.name} Car`}
+                        loading="eager"
+                        decoding="async"
+                        style={{
+                          position: "absolute",
+                          top: "50%",
+                          left: "50%",
+                          width: "auto",
+                          height: "60%",
+                          transform: "translate(-50%, -50%)",
+                          borderRadius: "15px",
+                          boxShadow: "0 4px 32px rgba(0,0,0,0.3)",
+                          pointerEvents: "none",
+                        }}
+                      />
+                    )}
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="absolute top-[65%] left-1/2 flex w-fit -translate-x-1/2 -translate-y-1/2 transform flex-row items-center justify-center gap-3 rounded-[30px] border border-neutral-900 bg-white/20 p-2 text-white shadow-lg backdrop-blur-md sm:top-[75%] lg:top-[80%]">
+        <div className="absolute top-[65%] left-1/2 flex w-fit -translate-x-1/2 -translate-y-1/2 transform flex-row items-center justify-center gap-3 rounded-[30px] border border-neutral-900 bg-white/20 p-2 text-white shadow-lg backdrop-blur-md sm:top-[75%]">
           {activeModel.colors.map((colorObj, index) => (
             <button
               key={index}
               onClick={() => handleSetActiveColorIndex(index)}
-              className={`h-4 w-4 rounded-full ${colorObj.color} shadow-md transition-all duration-300 ${
+              className={`h-4 w-4 rounded-full lg:h-8 lg:w-8 ${colorObj.color} shadow-md transition-all duration-300 ${
                 activeColorIndex === index
-                  ? "w-8 opacity-100 transition-all duration-300 "
+                  ? "w-8 opacity-100 transition-all duration-300 lg:w-16 "
                   : "opacity-30 hover:opacity-75 "
               }`}
             />
