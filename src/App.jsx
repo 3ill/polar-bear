@@ -72,7 +72,7 @@ const App = () => {
               d="M6.75 3h10.5M6.75 21h10.5M6.75 3v2.25a6 6 0 003 5.19v.12a6 6 0 01-3 5.19V21m10.5-18v2.25a6 6 0 01-3 5.19v.12a6 6 0 003 5.19V21"
             />
           </svg>
-          <span className="font-bebas mt-4 text-white">
+          <span className="font-bebas mt-4 text-black dark:text-white">
             preparing experience
           </span>
         </div>
@@ -80,7 +80,7 @@ const App = () => {
     );
   }
   return (
-    <main className="overflow-x-hidden overflow-y-hidden">
+    <main className="overflow-x-hidden overflow-y-hidden bg-neutral-100 dark:bg-[#010103]">
       <div className="max-w-9xl mx-auto">
         <Hero />
       </div>
