@@ -76,19 +76,6 @@ export const calculateSizes = (isSmall, isMobile, isTablet) => {
 
 export const Models = [
   {
-    id: "JAC-JS8-SUV",
-    name: "JS8",
-    component: BlackSUV,
-    defaultScale: 15,
-    defaultPosition: [0, -2, 0],
-    defaultRotation: [0, Math.PI / 2, 0],
-    colors: [
-      { color: "bg-white", component: WhiteSUV },
-      { color: "bg-black", component: BlackSUV },
-      { color: "bg-red-500", component: RedSUV },
-    ],
-  },
-  {
     id: "JAC-T9-TRUCK",
     name: "T9",
     component: RedSUV,
@@ -99,6 +86,19 @@ export const Models = [
       { color: "bg-black", component: BlackTruck },
       { color: "bg-cyan-800", component: BlueTruck },
       { color: "bg-neutral-600", component: GreyTruck },
+    ],
+  },
+  {
+    id: "JAC-JS8-SUV",
+    name: "JS8",
+    component: BlackSUV,
+    defaultScale: 15,
+    defaultPosition: [0, -2, 0],
+    defaultRotation: [0, Math.PI / 2, 0],
+    colors: [
+      { color: "bg-white", component: WhiteSUV },
+      { color: "bg-black", component: BlackSUV },
+      { color: "bg-red-500", component: RedSUV },
     ],
   },
   {
