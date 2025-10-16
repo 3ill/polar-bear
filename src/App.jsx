@@ -42,7 +42,7 @@ const App = () => {
 
   if (!imagesLoaded) {
     return (
-      <section className="flex h-screen w-full items-center justify-center">
+      <section className="flex h-screen w-full items-center justify-center bg-black">
         <div className="flex flex-col items-center justify-center">
           {/* Hourglass SVG with gradient */}
           <svg
@@ -72,7 +72,7 @@ const App = () => {
               d="M6.75 3h10.5M6.75 21h10.5M6.75 3v2.25a6 6 0 003 5.19v.12a6 6 0 01-3 5.19V21m10.5-18v2.25a6 6 0 01-3 5.19v.12a6 6 0 003 5.19V21"
             />
           </svg>
-          <span className="font-bebas mt-4 text-black dark:text-white">
+          <span className="font-bebas mt-4 text-white">
             preparing experience
           </span>
         </div>
