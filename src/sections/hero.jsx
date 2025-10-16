@@ -333,7 +333,7 @@ const Hero = () => {
               className={`h-4 w-4 rounded-full lg:h-10 lg:w-10 ${colorObj.color} shadow-custom shadow-md transition-all duration-300 ${
                 activeColorIndex === index
                   ? "w-8 opacity-100 transition-all duration-300 lg:w-20 "
-                  : "opacity-30 hover:opacity-75 "
+                  : "opacity-80 hover:opacity-75 dark:opacity-30 "
               }`}
             />
           ))}
