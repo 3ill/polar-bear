@@ -28,6 +28,7 @@ const Hero = () => {
   console.log(activeModel);
 
   useEffect(() => {
+    // Preload images
     const images = [
       "/assets/JS2/JS2-EX-001.jpg",
       "/assets/JS2/JS2-EX-002.jpg",
@@ -52,6 +53,8 @@ const Hero = () => {
         img.onerror = reject;
       });
     });
+
+    // Slider position logic
     const updateSliderPosition = () => {
       if (buttonRefs.current[activeModelIndex] && containerRef.current) {
         const button = buttonRefs.current[activeModelIndex];
@@ -65,7 +68,6 @@ const Hero = () => {
 
     setTimeout(updateSliderPosition, 0);
     window.addEventListener("resize", updateSliderPosition);
-    return () => window.removeEventListener("resize", updateSliderPosition);
   }, [activeModelIndex]);
 
   const handleSetActiveModelIndex = (index) => {
@@ -122,7 +124,7 @@ const Hero = () => {
     <section id="home" className="relative flex w-full flex-col">
       <div className="c-space mx-auto mt-0 flex w-full flex-col gap-3 sm:mt-5">
         <div className="relative flex w-full flex-row items-center">
-          <div className="flex w-fit rounded-[15px]">
+          <div className="z-50 flex w-fit rounded-[15px]">
             <a href="/" className="">
               <img
                 src={"assets/jac-logo.jpg"}

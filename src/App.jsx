@@ -80,7 +80,7 @@ const App = () => {
     );
   }
   return (
-    <main className="overflow-x-hidden overflow-y-hidden bg-neutral-100 dark:bg-[#010103]">
+    <main className="gap-[50px] overflow-x-hidden overflow-y-hidden bg-neutral-100 dark:bg-[#010103]">
       <div className="max-w-9xl mx-auto">
         <Hero />
       </div>

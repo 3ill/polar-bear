@@ -6,7 +6,7 @@ import { random } from "maath";
 const Stars = (props) => {
   const ref = useRef();
   const sphere = useMemo(
-    () => random.inSphere(new Float32Array(5500), { radius: 30 }),
+    () => random.inSphere(new Float32Array(5000), { radius: 50 }),
     [],
   );
   useFrame((state, delta) => {
@@ -19,7 +19,7 @@ const Stars = (props) => {
         <PointMaterial
           transparent
           color="#ffffff"
-          size={0.04}
+          size={0.08}
           sizeAttenuation={true}
           depthWrite={false}
         />

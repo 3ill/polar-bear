@@ -86,6 +86,14 @@ export const Models = [
       { color: "bg-black", component: BlackTruck },
       { color: "bg-cyan-800", component: BlueTruck },
       { color: "bg-neutral-600", component: GreyTruck },
+      {
+        color: "bg-green-500",
+        image: "/assets/JS2/JS2-SPEC-DOCS-A-UPSCALED.png",
+      },
+      {
+        color: "bg-green-500",
+        image: "/assets/JS2/JS2-SPEC-DOCS-B-UPSCALED.png",
+      },
     ],
   },
   {
@@ -99,6 +107,14 @@ export const Models = [
       { color: "bg-white", component: WhiteSUV },
       { color: "bg-black", component: BlackSUV },
       { color: "bg-red-500", component: RedSUV },
+      {
+        color: "bg-green-500",
+        image: "/assets/JS2/JS2-SPEC-DOCS-A-UPSCALED.png",
+      },
+      {
+        color: "bg-green-500",
+        image: "/assets/JS2/JS2-SPEC-DOCS-B-UPSCALED.png",
+      },
     ],
   },
   {
@@ -113,6 +129,14 @@ export const Models = [
       { color: "bg-black", image: "/assets/JS2/JS2-EX-002.jpg" },
       { color: "bg-[#3E2723]", image: "/assets/JS2/JS2-EX-005.jpg" },
       { color: "bg-orange-500", image: "/assets/JS2/JS2-EX-009.jpg" },
+      {
+        color: "bg-red-500",
+        image: "/assets/JS2/JS2-SPEC-DOCS-A-UPSCALED.png",
+      },
+      {
+        color: "bg-red-500",
+        image: "/assets/JS2/JS2-SPEC-DOCS-B-UPSCALED.png",
+      },
     ],
   },
   {
@@ -127,6 +151,14 @@ export const Models = [
       { color: "bg-neutral-600", image: "/assets/JS3/JS3-EX-004.jpg" },
       { color: "bg-[#3E2723]", image: "/assets/JS3/JS3-EX-005.jpg" },
       { color: "bg-red-500", image: "/assets/JS3/JS3-EX-006.jpg" },
+      {
+        color: "bg-black",
+        image: "/assets/JS3/JS3-SPEC-DOCS-A.png",
+      },
+      {
+        color: "bg-black",
+        image: "/assets/JS3/JS3-SPEC-DOCS-B.png",
+      },
     ],
   },
   {
@@ -141,6 +173,14 @@ export const Models = [
       { color: "bg-black", image: "/assets/JS4/JS4-EX-002.jpg" },
       { color: "bg-red-500", image: "/assets/JS4/JS4-EX-003.jpg" },
       { color: "bg-[#3E2723]", image: "/assets/JS4/JS4-EX-006.jpg" },
+      {
+        color: "bg-black",
+        image: "/assets/JS4/JS4-SPEC-DOCS-A.png",
+      },
+      {
+        color: "bg-black",
+        image: "/assets/JS4/JS4-SPEC-DOCS-B.png",
+      },
     ],
   },
 ];

@@ -29,7 +29,7 @@ export default {
         },
       },
       backgroundImage: {
-        terminal: "url('/assets/terminal.png')",
+        future: "url('/assets/backgrounds/futuristic-background.png')",
       },
     },
   },
