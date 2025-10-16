@@ -134,10 +134,10 @@ const Hero = () => {
           {/* Floating Model Toggle*/}
           <div
             ref={containerRef}
-            className="absolute top-1/2 left-1/2 z-50 hidden origin-center -translate-x-1/2 -translate-y-1/2 items-center justify-center gap-3 rounded-[50px] border border-neutral-900 bg-white/20 px-2 py-3 shadow-lg backdrop-blur-md lg:flex"
+            className="inner-shadow absolute top-1/2 left-1/2 z-50 hidden origin-center -translate-x-1/2 -translate-y-1/2 items-center justify-center gap-3 rounded-[50px] border border-neutral-900 bg-white/20 px-2 py-3 shadow-lg backdrop-blur-md lg:flex"
           >
             <div
-              className="pointer-events-none absolute h-[calc(100%-16px)] rounded-[50px] bg-white/20 opacity-50 shadow-md backdrop-blur-md transition-all duration-500 ease-out"
+              className="shadow-custom pointer-events-none absolute h-[calc(100%-16px)] rounded-[50px] bg-white/20 opacity-50 shadow-md backdrop-blur-md transition-all duration-500 ease-out"
               style={{
                 left: `${sliderStyle.left}px`,
                 width: `${sliderStyle.width}px`,
@@ -154,7 +154,7 @@ const Hero = () => {
                     activeModelIndex === index
                       ? "font-extrabold text-white transition-all duration-500 "
                       : "font-light text-neutral-500 transition-all duration-500 "
-                  } font-bebas relative z-10 px-4 py-2 text-2xl`}
+                  } font-bebas relative z-10 px-4 py-2 text-4xl`}
                   style={{
                     willChange: "transform",
                     backfaceVisibility: "hidden",
@@ -298,10 +298,11 @@ const Hero = () => {
                         alt={`${activeModel.name} Car`}
                         loading="eager"
                         decoding="async"
+                        className="scale-[1.10]"
                         style={{
                           position: "absolute",
                           top: "50%",
-                          left: "50%",
+                          left: "53%",
                           width: "auto",
                           height: "60%",
                           transform: "translate(-50%, -50%)",
@@ -317,14 +318,14 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="absolute top-[65%] left-1/2 flex w-fit -translate-x-1/2 -translate-y-1/2 transform flex-row items-center justify-center gap-3 rounded-[30px] border border-neutral-900 bg-white/20 p-2 text-white shadow-lg backdrop-blur-md sm:top-[75%]">
+        <div className="inner-shadow absolute top-[65%] left-1/2 flex w-fit -translate-x-1/2 -translate-y-1/2 transform flex-row items-center justify-center gap-3 rounded-[30px] border border-neutral-900 bg-white/20 p-2 text-white shadow-lg backdrop-blur-md sm:top-[75%]">
           {activeModel.colors.map((colorObj, index) => (
             <button
               key={index}
               onClick={() => handleSetActiveColorIndex(index)}
-              className={`h-4 w-4 rounded-full lg:h-8 lg:w-8 ${colorObj.color} shadow-md transition-all duration-300 ${
+              className={`h-4 w-4 rounded-full lg:h-10 lg:w-10 ${colorObj.color} shadow-custom shadow-md transition-all duration-300 ${
                 activeColorIndex === index
-                  ? "w-8 opacity-100 transition-all duration-300 lg:w-16 "
+                  ? "w-8 opacity-100 transition-all duration-300 lg:w-20 "
                   : "opacity-30 hover:opacity-75 "
               }`}
             />
