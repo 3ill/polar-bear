@@ -108,7 +108,7 @@ const Hero = () => {
     return (
       <section className="flex h-screen w-full items-center justify-center">
         <div className="flex flex-col items-center justify-center">
-          <span className="font-bebas mt-4 text-white">
+          <span className="font-bebas mt-4 text-black dark:text-white">
             View on Desktop for the best experience
           </span>
         </div>
