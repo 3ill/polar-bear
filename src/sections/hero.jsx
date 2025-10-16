@@ -10,6 +10,7 @@ import CanvasLoader from "../components/canvas-loader";
 import { calculateSizes, Models } from "../constants";
 import { useRef } from "react";
 import Stars from "../components/stars";
+import DarkModeToggle from "../components/dark-mode-toggle";
 
 const Hero = () => {
   const [activeModelIndex, setActiveModelIndex] = useState(0);
@@ -121,12 +122,12 @@ const Hero = () => {
     <section id="home" className="relative flex w-full flex-col">
       <div className="c-space mx-auto mt-0 flex w-full flex-col gap-3 sm:mt-5">
         <div className="relative flex w-full flex-row items-center">
-          <div className="flex w-full max-w-[200px]">
+          <div className="flex w-fit rounded-[15px]">
             <a href="/" className="">
               <img
                 src={"assets/jac-logo.jpg"}
                 alt="logo"
-                className="h-40 w-50 object-contain"
+                className="h-40 w-50 rounded-[8px] object-contain"
               />
             </a>
           </div>
@@ -134,7 +135,7 @@ const Hero = () => {
           {/* Floating Model Toggle*/}
           <div
             ref={containerRef}
-            className="inner-shadow absolute top-1/2 left-1/2 z-50 hidden origin-center -translate-x-1/2 -translate-y-1/2 items-center justify-center gap-3 rounded-[50px] border border-neutral-900 bg-white/20 px-2 py-3 shadow-lg backdrop-blur-md lg:flex"
+            className="inner-shadow absolute top-1/2 left-1/2 z-50 hidden origin-center -translate-x-1/2 -translate-y-1/2 items-center justify-center gap-3 rounded-[50px] border border-neutral-500 bg-white/20 px-2 py-3 shadow-lg backdrop-blur-md lg:flex dark:border-neutral-900"
           >
             <div
               className="shadow-custom pointer-events-none absolute h-[calc(100%-16px)] rounded-[50px] bg-white/20 opacity-50 shadow-md backdrop-blur-md transition-all duration-500 ease-out"
@@ -152,8 +153,8 @@ const Hero = () => {
                   onClick={() => handleSetActiveModelIndex(index)}
                   className={`${
                     activeModelIndex === index
-                      ? "font-extrabold text-white transition-all duration-500 "
-                      : "font-light text-neutral-500 transition-all duration-500 "
+                      ? "font-extrabold text-black transition-all duration-500 dark:text-white "
+                      : "font-light text-neutral-600 transition-all duration-500 dark:text-neutral-400 "
                   } font-bebas relative z-10 px-4 py-2 text-4xl`}
                   style={{
                     willChange: "transform",
@@ -166,6 +167,10 @@ const Hero = () => {
                 </button>
               );
             })}
+          </div>
+
+          <div className="absolute right-0 z-50">
+            <DarkModeToggle />
           </div>
         </div>
 
@@ -318,7 +323,7 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="inner-shadow absolute top-[65%] left-1/2 flex w-fit -translate-x-1/2 -translate-y-1/2 transform flex-row items-center justify-center gap-3 rounded-[30px] border border-neutral-900 bg-white/20 p-2 text-white shadow-lg backdrop-blur-md sm:top-[75%]">
+        <div className="inner-shadow absolute top-[65%] left-1/2 flex w-fit -translate-x-1/2 -translate-y-1/2 transform flex-row items-center justify-center gap-3 rounded-[30px] border border-neutral-500 bg-white/20 p-2 text-white shadow-lg backdrop-blur-md sm:top-[75%] dark:border-neutral-900">
           {activeModel.colors.map((colorObj, index) => (
             <button
               key={index}
