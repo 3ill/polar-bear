@@ -33,7 +33,6 @@ import BlackSUV from "../components/black-suv";
 import BlackTruck from "../components/black-truck";
 import BlueTruck from "../components/blue-truck";
 import GreyTruck from "../components/grey-truck";
-import Js2Car from "../components/js8-car";
 import RedSUV from "../components/red-suv";
 import WhiteSUV from "../components/white-suv";
 
