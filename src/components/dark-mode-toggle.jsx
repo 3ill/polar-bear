@@ -1,8 +1,4 @@
-import {
-  IconMickeyFilled,
-  IconMoonFilled,
-  IconSunFilled,
-} from "@tabler/icons-react";
+import { IconMoonFilled, IconSunFilled } from "@tabler/icons-react";
 import { useState, useRef, useEffect } from "react";
 
 export default function DarkModeToggle() {
@@ -10,7 +6,7 @@ export default function DarkModeToggle() {
     typeof window !== "undefined" &&
     document.documentElement.classList.contains("dark")
       ? "dark"
-      : localStorage.getItem("theme") || "light",
+      : localStorage.getItem("theme") || "dark",
   );
   const buttonRefs = useRef([]);
 
