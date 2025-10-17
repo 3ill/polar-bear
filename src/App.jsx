@@ -12,17 +12,23 @@ const App = () => {
       "/assets/JS2/JS2-EX-002.webp",
       "/assets/JS2/JS2-EX-005.webp",
       "/assets/JS2/JS2-EX-009.webp",
+      "/assets/JS2/JS2-SPEC-DOCS-A-UPSCALED.webp",
+      "/assets/JS2/JS2-SPEC-DOCS-B-UPSCALED.webp",
       // JS3
       "/assets/JS3/JS3-EX-001.webp",
       "/assets/JS3/JS3-EX-004.webp",
       "/assets/JS3/JS3-EX-005.webp",
       "/assets/JS3/JS3-EX-006.webp",
+      "/assets/JS3/JS3-SPEC-DOCS-A.webp",
+      "/assets/JS3/JS3-SPEC-DOCS-B.webp",
 
       // JS4
       "/assets/JS4/JS4-EX-008.webp",
       "/assets/JS4/JS4-EX-010.webp",
       "/assets/JS4/JS4-EX-007.webp",
       "/assets/JS4/JS4-EX-006.webp",
+      "/assets/JS4/JS4-SPEC-DOCS-A.webp",
+      "/assets/JS4/JS4-SPEC-DOCS-B.webp",
 
       // JS6
       "/assets/JS6/EXTERIOR/JS6-EX-001.webp",
@@ -33,6 +39,9 @@ const App = () => {
       "/assets/JS6/INTERIOR/JS6-IN-002.webp",
       "/assets/JS6/INTERIOR/JS6-IN-003.webp",
       "/assets/JS6/INTERIOR/JS6-IN-004.webp",
+      "/assets/JS6/JS6-SPEC-DOCS-A.webp",
+      "/assets/JS6/JS6-SPEC-DOCS-B.webp",
+      "/assets/JS6/JS6-SPEC-DOCS-C.webp",
 
       // JS7
       "/assets/JS7/EXTERIOR/JS7-EX-001.webp",
@@ -43,6 +52,9 @@ const App = () => {
       "/assets/JS7/INTERIOR/JS7-IN-002.webp",
       "/assets/JS7/INTERIOR/JS7-IN-003.webp",
       "/assets/JS7/INTERIOR/JS7-IN-004.webp",
+      "/assets/JS7/JS7-SPEC-DOCS-A.webp",
+      "/assets/JS7/JS7-SPEC-DOCS-B.webp",
+      "/assets/JS7/JS7-SPEC-DOCS-C.webp",
 
       // T8 PRO
       "/assets/T8/EXTERIOR/T8-R-EX-001.webp",
@@ -53,6 +65,8 @@ const App = () => {
       "/assets/T8/INTERIOR/T8-R-IN-002.webp",
       "/assets/T8/INTERIOR/T8-R-IN-003.webp",
       "/assets/T8/INTERIOR/T8-R-IN-004.webp",
+      "/assets/T8/T8-SPEC-DOCS-A.webp",
+      "/assets/T8/T8-SPEC-DOCS-B.webp",
 
       "/assets/T6/T6-L-EX-001.webp",
       "/assets/T6/T6-L-EX-002.webp",

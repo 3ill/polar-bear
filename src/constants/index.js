@@ -58,17 +58,17 @@ export const Models = [
 
       {
         color: "bg-neutral-600",
-        image: "/assets/T9/T9-SPEC-DOCS-A.png",
+        image: "/assets/T9/T9-SPEC-DOCS-A.webp",
       },
       {
         color: "bg-neutral-600",
-        image: "/assets/T9/T9-SPEC-DOCS-B.png",
+        image: "/assets/T9/T9-SPEC-DOCS-B.webp",
       },
     ],
   },
   {
     id: "JAC-JS8-SUV",
-    name: "JS8",
+    name: "JS8 PRO",
     component: BlackSUV,
     defaultScale: 15,
     defaultPosition: [0, -2, 0],
@@ -93,11 +93,11 @@ export const Models = [
       { color: "bg-orange-500", image: "/assets/JS2/JS2-EX-009.webp" },
       {
         color: "bg-red-500",
-        image: "/assets/JS2/JS2-SPEC-DOCS-A-UPSCALED.png",
+        image: "/assets/JS2/JS2-SPEC-DOCS-A-UPSCALED.webp",
       },
       {
         color: "bg-red-500",
-        image: "/assets/JS2/JS2-SPEC-DOCS-B-UPSCALED.png",
+        image: "/assets/JS2/JS2-SPEC-DOCS-B-UPSCALED.webp",
       },
     ],
   },
@@ -115,11 +115,11 @@ export const Models = [
       { color: "bg-red-500", image: "/assets/JS3/JS3-EX-006.webp" },
       {
         color: "bg-black",
-        image: "/assets/JS3/JS3-SPEC-DOCS-A.png",
+        image: "/assets/JS3/JS3-SPEC-DOCS-A.webp",
       },
       {
         color: "bg-black",
-        image: "/assets/JS3/JS3-SPEC-DOCS-B.png",
+        image: "/assets/JS3/JS3-SPEC-DOCS-B.webp",
       },
     ],
   },
@@ -137,11 +137,11 @@ export const Models = [
       { color: "bg-[#3E2723]", image: "/assets/JS4/JS4-EX-006.webp" },
       {
         color: "bg-black",
-        image: "/assets/JS4/JS4-SPEC-DOCS-A.png",
+        image: "/assets/JS4/JS4-SPEC-DOCS-A.webp",
       },
       {
         color: "bg-black",
-        image: "/assets/JS4/JS4-SPEC-DOCS-B.png",
+        image: "/assets/JS4/JS4-SPEC-DOCS-B.webp",
       },
     ],
   },
@@ -163,15 +163,15 @@ export const Models = [
       { color: "bg-gray-400", image: "/assets/JS6/INTERIOR/JS6-IN-004.webp" },
       {
         color: "bg-black",
-        image: "/assets/JS6/JS6-SPEC-DOCS-A.png",
+        image: "/assets/JS6/JS6-SPEC-DOCS-A.webp",
       },
       {
         color: "bg-black",
-        image: "/assets/JS6/JS6-SPEC-DOCS-B.png",
+        image: "/assets/JS6/JS6-SPEC-DOCS-B.webp",
       },
       {
         color: "bg-black",
-        image: "/assets/JS6/JS6-SPEC-DOCS-C.png",
+        image: "/assets/JS6/JS6-SPEC-DOCS-C.webp",
       },
     ],
   },
@@ -193,15 +193,15 @@ export const Models = [
       { color: "bg-gray-400", image: "/assets/JS7/INTERIOR/JS7-IN-004.webp" },
       {
         color: "bg-black",
-        image: "/assets/JS7/JS7-SPEC-DOCS-A.png",
+        image: "/assets/JS7/JS7-SPEC-DOCS-A.webp",
       },
       {
         color: "bg-black",
-        image: "/assets/JS7/JS7-SPEC-DOCS-B.png",
+        image: "/assets/JS7/JS7-SPEC-DOCS-B.webp",
       },
       {
         color: "bg-black",
-        image: "/assets/JS7/JS7-SPEC-DOCS-C.png",
+        image: "/assets/JS7/JS7-SPEC-DOCS-C.webp",
       },
     ],
   },
@@ -223,11 +223,11 @@ export const Models = [
       { color: "bg-blue-500", image: "/assets/T8/INTERIOR/T8-R-IN-004.webp" },
       {
         color: "bg-blue-500",
-        image: "/assets/T8/T8-SPEC-DOCS-A.png",
+        image: "/assets/T8/T8-SPEC-DOCS-A.webp",
       },
       {
         color: "bg-blue-500",
-        image: "/assets/T8/T8-SPEC-DOCS-B.png",
+        image: "/assets/T8/T8-SPEC-DOCS-B.webp",
       },
     ],
   },
