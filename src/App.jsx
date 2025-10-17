@@ -24,14 +24,14 @@ const App = () => {
       "/assets/JS4/JS4-EX-006.jpg",
 
       // JS6
-      "/assets/JS6/EXTERIOR/JS6-EX-001.png",
-      "/assets/JS6/EXTERIOR/JS6-EX-002.png",
-      "/assets/JS6/EXTERIOR/JS6-EX-003.png",
-      "/assets/JS6/EXTERIOR/JS6-EX-004.png",
-      "/assets/JS6/INTERIOR/JS6-IN-001.jpg",
-      "/assets/JS6/INTERIOR/JS6-IN-002.jpg",
-      "/assets/JS6/INTERIOR/JS6-IN-003.jpg",
-      "/assets/JS6/INTERIOR/JS6-IN-004.jpg",
+      // "/assets/JS6/EXTERIOR/JS6-EX-001.png",
+      // "/assets/JS6/EXTERIOR/JS6-EX-002.png",
+      // "/assets/JS6/EXTERIOR/JS6-EX-003.png",
+      // "/assets/JS6/EXTERIOR/JS6-EX-004.png",
+      // "/assets/JS6/INTERIOR/JS6-IN-001.jpg",
+      // "/assets/JS6/INTERIOR/JS6-IN-002.jpg",
+      // "/assets/JS6/INTERIOR/JS6-IN-003.jpg",
+      // "/assets/JS6/INTERIOR/JS6-IN-004.jpg",
 
       // JS7
       "/assets/JS7/EXTERIOR/JS7-EX-001.jpg",
@@ -52,6 +52,14 @@ const App = () => {
       "/assets/T8/INTERIOR/T8-R-IN-002.jpg",
       "/assets/T8/INTERIOR/T8-R-IN-003.jpg",
       "/assets/T8/INTERIOR/T8-R-IN-004.jpg",
+      
+      
+      // RF8
+      "/assets/RF8/RF8-EX-001.jpg",
+      "/assets/RF8/RF8-EX-002.jpg",
+      "/assets/RF8/RF8-EX-003.jpg",
+      "/assets/RF8/RF8-EX-004.jpg",
+      "/assets/RF8/RF8-EX-005.jpg",
     ];
     const imagePromises = images.map((src) => {
       return new Promise((resolve, reject) => {
