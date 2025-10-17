@@ -34,32 +34,31 @@ const App = () => {
       // "/assets/JS6/INTERIOR/JS6-IN-004.jpg",
 
       // JS7
-      "/assets/JS7/EXTERIOR/JS7-EX-001.jpg",
-      "/assets/JS7/EXTERIOR/JS7-EX-002.jpg",
-      "/assets/JS7/EXTERIOR/JS7-EX-003.jpg",
-      "/assets/JS7/EXTERIOR/JS7-EX-004.png",
-      "/assets/JS7/INTERIOR/JS7-IN-001.jpg",
-      "/assets/JS7/INTERIOR/JS7-IN-002.jpg",
-      "/assets/JS7/INTERIOR/JS7-IN-003.jpg",
-      "/assets/JS7/INTERIOR/JS7-IN-004.jpg",
+      // "/assets/JS7/EXTERIOR/JS7-EX-001.jpg",
+      // "/assets/JS7/EXTERIOR/JS7-EX-002.jpg",
+      // "/assets/JS7/EXTERIOR/JS7-EX-003.jpg",
+      // "/assets/JS7/EXTERIOR/JS7-EX-004.png",
+      // "/assets/JS7/INTERIOR/JS7-IN-001.jpg",
+      // "/assets/JS7/INTERIOR/JS7-IN-002.jpg",
+      // "/assets/JS7/INTERIOR/JS7-IN-003.jpg",
+      // "/assets/JS7/INTERIOR/JS7-IN-004.jpg",
 
-      // T8 PRO
-      "/assets/T8/EXTERIOR/T8-R-EX-001.jpg",
-      "/assets/T8/EXTERIOR/T8-R-EX-002.jpg",
-      "/assets/T8/EXTERIOR/T8-R-EX-003.jpg",
-      "/assets/T8/EXTERIOR/T8-R-EX-004.jpg",
-      "/assets/T8/INTERIOR/T8-R-IN-001.jpg",
-      "/assets/T8/INTERIOR/T8-R-IN-002.jpg",
-      "/assets/T8/INTERIOR/T8-R-IN-003.jpg",
-      "/assets/T8/INTERIOR/T8-R-IN-004.jpg",
-      
-      
-      // RF8
-      "/assets/RF8/RF8-EX-001.jpg",
-      "/assets/RF8/RF8-EX-002.jpg",
-      "/assets/RF8/RF8-EX-003.jpg",
-      "/assets/RF8/RF8-EX-004.jpg",
-      "/assets/RF8/RF8-EX-005.jpg",
+      // // T8 PRO
+      // "/assets/T8/EXTERIOR/T8-R-EX-001.jpg",
+      // "/assets/T8/EXTERIOR/T8-R-EX-002.jpg",
+      // "/assets/T8/EXTERIOR/T8-R-EX-003.jpg",
+      // "/assets/T8/EXTERIOR/T8-R-EX-004.jpg",
+      // "/assets/T8/INTERIOR/T8-R-IN-001.jpg",
+      // "/assets/T8/INTERIOR/T8-R-IN-002.jpg",
+      // "/assets/T8/INTERIOR/T8-R-IN-003.jpg",
+      // "/assets/T8/INTERIOR/T8-R-IN-004.jpg",
+
+      // // RF8
+      // "/assets/RF8/RF8-EX-001.jpg",
+      // "/assets/RF8/RF8-EX-002.jpg",
+      // "/assets/RF8/RF8-EX-003.jpg",
+      // "/assets/RF8/RF8-EX-004.jpg",
+      // "/assets/RF8/RF8-EX-005.jpg",
     ];
     const imagePromises = images.map((src) => {
       return new Promise((resolve, reject) => {
