@@ -357,16 +357,24 @@ const Hero = () => {
               <div
                 ref={canvasContainerRef}
                 className="absolute inset-0 -top-[30%] h-full w-full sm:top-0 md:-top-30"
-                onTouchStart={onTouchStart}
-                onTouchMove={onTouchMove}
-                onTouchEnd={onTouchEnd}
-                onPointerDown={onPointerDown}
-                onPointerMove={onPointerMove}
-                onPointerUp={onPointerUp}
-                onPointerLeave={() => setIsPointerDown(false)}
+                {...(activeModel.colors[activeColorIndex].image && {
+                  onTouchStart: onTouchStart,
+                  onTouchMove: onTouchMove,
+                  onTouchEnd: onTouchEnd,
+                  onPointerDown: onPointerDown,
+                  onPointerMove: onPointerMove,
+                  onPointerUp: onPointerUp,
+                  onPointerLeave: () => setIsPointerDown(false),
+                })}
                 style={{
-                  touchAction: "pan-y",
-                  cursor: isPointerDown ? "grabbing" : "grab",
+                  touchAction: activeModel.colors[activeColorIndex].image
+                    ? "pan-y"
+                    : "auto",
+                  cursor: activeModel.colors[activeColorIndex].image
+                    ? isPointerDown
+                      ? "grabbing"
+                      : "grab"
+                    : "default",
                 }}
               >
                 <div
