@@ -177,7 +177,7 @@ export const Models = [
   },
   {
     id: "JS7-SUV",
-    name: "JS7",
+    name: "J7",
     component: null,
     defaultScale: 200,
     defaultPosition: [0, -2, 0],
