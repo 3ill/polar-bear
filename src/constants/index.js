@@ -262,6 +262,35 @@ export const Models = [
       },
     ],
   },
+  {
+    id: "T6",
+    name: "T6",
+    component: null,
+    defaultScale: 200,
+    defaultPosition: [0, -2, 0],
+    defaultRotation: [0, Math.PI / 2, 0],
+    colors: [
+      { color: "bg-[#C0C0C0]", image: "/assets/T6/T6-L-EX-001.jpg" },
+      { color: "bg-[#C0C0C0]", image: "/assets/T6/T6-L-EX-002.png" },
+      { color: "bg-[#C0C0C0]", image: "/assets/T6/T6-L-EX-003.png" },
+      { color: "bg-[#C0C0C0]", image: "/assets/T6/T6-L-EX-004.png" },
+    ],
+  },
+  {
+    id: "RF8",
+    name: "RF8",
+    component: null,
+    defaultScale: 200,
+    defaultPosition: [0, -2, 0],
+    defaultRotation: [0, Math.PI / 2, 0],
+    colors: [
+      { color: "bg-[#C0C0C0]", image: "/assets/RF8/RF8-EX-001.jpg" },
+      { color: "bg-[#C0C0C0]", image: "/assets/RF8/RF8-EX-002.jpg" },
+      { color: "bg-[#C0C0C0]", image: "/assets/RF8/RF8-EX-003.jpg" },
+      { color: "bg-[#C0C0C0]", image: "/assets/RF8/RF8-EX-004.jpg" },
+      { color: "bg-[#C0C0C0]", image: "/assets/RF8/RF8-EX-005.jpg" },
+    ],
+  },
 ];
 
 export const VehicleGallery = [

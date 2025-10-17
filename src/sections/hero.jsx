@@ -83,6 +83,17 @@ const Hero = () => {
       "/assets/T8/INTERIOR/T8-R-IN-002.jpg",
       "/assets/T8/INTERIOR/T8-R-IN-003.jpg",
       "/assets/T8/INTERIOR/T8-R-IN-004.jpg",
+
+      "/assets/T6/T6-L-EX-001.jpg",
+      "/assets/T6/T6-L-EX-002.jpg",
+      "/assets/T6/T6-L-EX-003.jpg",
+      "/assets/T6/T6-L-EX-004.png",
+
+      "/assets/RF8/RF8-EX-001.jpg",
+      "/assets/RF8/RF8-EX-002.jpg",
+      "/assets/RF8/RF8-EX-003.jpg",
+      "/assets/RF8/RF8-EX-004.jpg",
+      "/assets/RF8/RF8-EX-005.jpg",
     ];
     images.map((src) => {
       return new Promise((resolve, reject) => {
@@ -249,7 +260,7 @@ const Hero = () => {
               <img
                 src={"assets/jac-logo.jpg"}
                 alt="logo"
-                className="h-40 w-50 rounded-[8px] object-contain"
+                className="h-30 w-40 rounded-[8px] object-contain"
               />
             </a>
           </div>
