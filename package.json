@@ -7,7 +7,10 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "optimize:images": "node scripts/optimize-images.js",
+    "optimize:smart": "node scripts/smart-convert.js",
+    "optimize:single": "node scripts/smart-convert.js"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
@@ -48,6 +51,7 @@
     "globals": "^16.4.0",
     "prettier": "^3.6.2",
     "prettier-plugin-tailwindcss": "^0.7.0",
+    "sharp": "^0.34.4",
     "tailwindcss-motion": "^1.1.1",
     "vite": "^7.1.7"
   },
