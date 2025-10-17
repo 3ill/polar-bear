@@ -18,11 +18,20 @@ const Hero = () => {
   const [sliderStyle, setSliderStyle] = useState({ left: 0, width: 0 });
   const buttonRefs = useRef([]);
   const containerRef = useRef(null);
+  const canvasContainerRef = useRef(null);
   const [defaultCarRotation, setDefaultCarRotation] = useState([
     0,
     Math.PI / 2,
     0,
   ]);
+
+  // Swipe detection state
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
+
+  // Minimum swipe distance (in px)
+  const minSwipeDistance = 50;
+
   console.log(activeModelIndex);
   const activeModel = Models[activeModelIndex];
   console.log(activeModel);
@@ -98,6 +107,10 @@ const Hero = () => {
 
     setTimeout(updateSliderPosition, 0);
     window.addEventListener("resize", updateSliderPosition);
+
+    return () => {
+      window.removeEventListener("resize", updateSliderPosition);
+    };
   }, [activeModelIndex]);
 
   const handleSetActiveModelIndex = (index) => {
@@ -120,6 +133,83 @@ const Hero = () => {
     const newIndex =
       activeModelIndex === Models.length - 1 ? 0 : activeModelIndex + 1;
     handleSetActiveModelIndex(newIndex);
+  };
+
+  const handlePreviousColor = () => {
+    const newIndex =
+      activeColorIndex === 0
+        ? activeModel.colors.length - 1
+        : activeColorIndex - 1;
+    handleSetActiveColorIndex(newIndex);
+  };
+
+  const handleNextColor = () => {
+    const newIndex =
+      activeColorIndex === activeModel.colors.length - 1
+        ? 0
+        : activeColorIndex + 1;
+    handleSetActiveColorIndex(newIndex);
+  };
+
+  // Swipe handlers
+  const onTouchStart = (e) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) {
+      handleNextColor();
+    }
+    if (isRightSwipe) {
+      handlePreviousColor();
+    }
+  };
+
+  // Mouse/pointer swipe handlers for desktop
+  const [pointerStart, setPointerStart] = useState(null);
+  const [pointerEnd, setPointerEnd] = useState(null);
+  const [isPointerDown, setIsPointerDown] = useState(false);
+
+  const onPointerDown = (e) => {
+    setIsPointerDown(true);
+    setPointerEnd(null);
+    setPointerStart(e.clientX);
+  };
+
+  const onPointerMove = (e) => {
+    if (!isPointerDown) return;
+    setPointerEnd(e.clientX);
+  };
+
+  const onPointerUp = () => {
+    if (!pointerStart || !pointerEnd || !isPointerDown) {
+      setIsPointerDown(false);
+      return;
+    }
+
+    const distance = pointerStart - pointerEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) {
+      handleNextColor();
+    }
+    if (isRightSwipe) {
+      handlePreviousColor();
+    }
+
+    setIsPointerDown(false);
   };
 
   const isSmall = useMediaQuery({
@@ -264,7 +354,21 @@ const Hero = () => {
 
             {/* 3D Canvas */}
             <div className="relative flex h-full w-full">
-              <div className="absolute inset-0 -top-[30%] h-full w-full sm:top-0 md:-top-30">
+              <div
+                ref={canvasContainerRef}
+                className="absolute inset-0 -top-[30%] h-full w-full sm:top-0 md:-top-30"
+                onTouchStart={onTouchStart}
+                onTouchMove={onTouchMove}
+                onTouchEnd={onTouchEnd}
+                onPointerDown={onPointerDown}
+                onPointerMove={onPointerMove}
+                onPointerUp={onPointerUp}
+                onPointerLeave={() => setIsPointerDown(false)}
+                style={{
+                  touchAction: "pan-y",
+                  cursor: isPointerDown ? "grabbing" : "grab",
+                }}
+              >
                 <div
                   style={{
                     height: "95vh",
