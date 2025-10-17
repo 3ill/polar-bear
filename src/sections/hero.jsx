@@ -44,6 +44,36 @@ const Hero = () => {
       "/assets/JS4/JS4-EX-002.jpg",
       "/assets/JS4/JS4-EX-003.jpg",
       "/assets/JS4/JS4-EX-006.jpg",
+
+      // JS6
+      "/assets/JS6/EXTERIOR/JS6-EX-001.png",
+      "/assets/JS6/EXTERIOR/JS6-EX-002.png",
+      "/assets/JS6/EXTERIOR/JS6-EX-003.png",
+      "/assets/JS6/EXTERIOR/JS6-EX-004.png",
+      "/assets/JS6/INTERIOR/JS6-IN-001.jpg",
+      "/assets/JS6/INTERIOR/JS6-IN-002.jpg",
+      "/assets/JS6/INTERIOR/JS6-IN-003.jpg",
+      "/assets/JS6/INTERIOR/JS6-IN-004.jpg",
+
+      // JS7
+      "/assets/JS7/EXTERIOR/JS7-EX-001.jpg",
+      "/assets/JS7/EXTERIOR/JS7-EX-002.jpg",
+      "/assets/JS7/EXTERIOR/JS7-EX-003.jpg",
+      "/assets/JS7/EXTERIOR/JS7-EX-004.png",
+      "/assets/JS7/INTERIOR/JS7-IN-001.jpg",
+      "/assets/JS7/INTERIOR/JS7-IN-002.jpg",
+      "/assets/JS7/INTERIOR/JS7-IN-003.jpg",
+      "/assets/JS7/INTERIOR/JS7-IN-004.jpg",
+
+      // T8 PRO
+      "/assets/T8/EXTERIOR/T8-R-EX-001.jpg",
+      "/assets/T8/EXTERIOR/T8-R-EX-002.jpg",
+      "/assets/T8/EXTERIOR/T8-R-EX-003.jpg",
+      "/assets/T8/EXTERIOR/T8-R-EX-004.jpg",
+      "/assets/T8/INTERIOR/T8-R-IN-001.jpg",
+      "/assets/T8/INTERIOR/T8-R-IN-002.jpg",
+      "/assets/T8/INTERIOR/T8-R-IN-003.jpg",
+      "/assets/T8/INTERIOR/T8-R-IN-004.jpg",
     ];
     images.map((src) => {
       return new Promise((resolve, reject) => {
@@ -155,9 +185,9 @@ const Hero = () => {
                   onClick={() => handleSetActiveModelIndex(index)}
                   className={`${
                     activeModelIndex === index
-                      ? "font-extrabold text-black transition-all duration-500 dark:text-white "
-                      : "font-light text-neutral-600 transition-all duration-500 dark:text-neutral-400 "
-                  } font-bebas relative z-10 px-4 py-2 text-4xl`}
+                      ? "font-extrabold text-white transition-all duration-500 dark:text-white "
+                      : "font-light text-neutral-400 transition-all duration-500 dark:text-neutral-400 "
+                  } font-bebas relative z-10 px-4 py-2 text-4xl text-nowrap`}
                   style={{
                     willChange: "transform",
                     backfaceVisibility: "hidden",
@@ -284,41 +314,39 @@ const Hero = () => {
                         resolution={1080}
                       />
                       <Stars />
-                      {ModelComponent &&
-                        !["JS2", "JS3", "JS4"].includes(activeModel.name) && (
-                          <ModelComponent
-                            key={`${activeModel.id}-${activeColorIndex}`}
-                            animationKey={`${activeModel.id}-${activeColorIndex}`}
-                            scale={sizes.carScale}
-                            position={sizes.carPosition}
-                            rotation={defaultCarRotation}
-                            wireframe={false}
-                          />
-                        )}
+                      {ModelComponent && (
+                        <ModelComponent
+                          key={`${activeModel.id}-${activeColorIndex}`}
+                          animationKey={`${activeModel.id}-${activeColorIndex}`}
+                          scale={sizes.carScale}
+                          position={sizes.carPosition}
+                          rotation={defaultCarRotation}
+                          wireframe={false}
+                        />
+                      )}
                     </Suspense>
                   </Canvas>
-                  {["JS2", "JS3", "JS4"].includes(activeModel.name) &&
-                    activeModel.colors[activeColorIndex].image && (
-                      <img
-                        key={activeModel.colors[activeColorIndex].image}
-                        src={activeModel.colors[activeColorIndex].image}
-                        alt={`${activeModel.name} Car`}
-                        loading="eager"
-                        decoding="async"
-                        className="scale-[1.10]"
-                        style={{
-                          position: "absolute",
-                          top: "50%",
-                          left: "53%",
-                          width: "auto",
-                          height: "60%",
-                          transform: "translate(-50%, -50%)",
-                          borderRadius: "15px",
-                          boxShadow: "0 4px 32px rgba(0,0,0,0.3)",
-                          pointerEvents: "none",
-                        }}
-                      />
-                    )}
+                  {activeModel.colors[activeColorIndex].image && (
+                    <img
+                      key={activeModel.colors[activeColorIndex].image}
+                      src={activeModel.colors[activeColorIndex].image}
+                      alt={`${activeModel.name} Car`}
+                      loading="eager"
+                      decoding="async"
+                      className="scale-[1.10]"
+                      style={{
+                        position: "absolute",
+                        top: "50%",
+                        left: "53%",
+                        width: "auto",
+                        height: "60%",
+                        transform: "translate(-50%, -50%)",
+                        borderRadius: "15px",
+                        boxShadow: "0 4px 32px rgba(0,0,0,0.3)",
+                        pointerEvents: "none",
+                      }}
+                    />
+                  )}
                 </div>
               </div>
             </div>
@@ -330,9 +358,9 @@ const Hero = () => {
             <button
               key={index}
               onClick={() => handleSetActiveColorIndex(index)}
-              className={`h-4 w-4 rounded-full lg:h-10 lg:w-10 ${colorObj.color} shadow-custom shadow-md transition-all duration-300 ${
+              className={`h-4 w-4 rounded-full lg:h-15 lg:w-15 ${colorObj.color} shadow-custom shadow-md transition-all duration-300 ${
                 activeColorIndex === index
-                  ? "w-8 opacity-100 transition-all duration-300 lg:w-20 "
+                  ? "w-8 opacity-100 transition-all duration-300 lg:w-30 "
                   : "opacity-80 hover:opacity-75 dark:opacity-30 "
               }`}
             />
